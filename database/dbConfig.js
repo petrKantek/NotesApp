@@ -5,6 +5,7 @@ const db = pgp(`postgres://${process.env.AZURE_POSTGRESQL_USER}
 :${process.env.AZURE_POSTGRESQL_PASSWORD}
 @${process.env.AZURE_POSTGRESQL_HOST}
 :${process.env.AZURE_POSTGRESQL_PORT}
-/${process.env.AZURE_POSTGRESQL_DATABASE}?ssl=${AZURE_POSTGRESQL_SSL}`)
+/${process.env.AZURE_POSTGRESQL_DATABASE}
+?ssl=${process.env.AZURE_POSTGRESQL_SSL}`)
 
 module.exports = db;
