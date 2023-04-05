@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "swagger-autogen": "node swagger.js"
   },
   "keywords": [
     "NODE_JS",
@@ -22,7 +23,9 @@
     "express-validator": "^6.5.0",
     "helmet": "^5.1.1",
     "mongoose": "^6.5.2",
-    "pg-promise": "^11.4.3"
+    "pg-promise": "^11.4.3",
+    "swagger-autogen": "^2.23.1",
+    "swagger-ui-express": "^4.6.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.16"
