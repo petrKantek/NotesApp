@@ -1,12 +1,13 @@
-import express, { urlencoded, json } from "express";
-import connectToDatabase from "./database/dbConfig";
-import noteRoutes from "./routes/index";
-import errorMiddleware from "./middlewares/error";
-import cors from "cors";
+const express = require("express");
+const path = require("path");
+const connectToDatabase = require("./database/dbConfig");
+const noteRoutes = require("./routes/index");
+const errorMiddleware = require("./middlewares/error");
+const cors = require("cors");
 
 const app = express();
-app.use(urlencoded({ extended: false }));
-app.use(json());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 app.use(cors());
 

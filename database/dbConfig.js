@@ -7,4 +7,4 @@ const db = pgp(`postgres://${process.env.AZURE_POSTGRESQL_USER}
 :${process.env.AZURE_POSTGRESQL_PORT}
 /${process.env.AZURE_POSTGRESQL_DATABASE}`)
 
-export default db;
+module.exports = db;

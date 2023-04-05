@@ -1,6 +1,6 @@
-import CustomError from "../models/CustomError";
+const CustomError = require("../models/CustomError");
 
-export async function getNotes(req, res, next) {
+exports.getNotes = async (req, res, next) => {
   try {
     const notes = await db.any('select * from main.notes');
     res.status(200).json({ notes });
