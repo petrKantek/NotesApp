@@ -1,12 +1,12 @@
-const express = require("express");
-const noteController = require("../controllers/note");
+import { Router } from "express";
+import { getNotes } from "../controllers/note";
 
-const router = express.Router();
+const router = Router();
 
-router.get("/api/notes", noteController.getNotes);
+router.get("/api/notes", getNotes);
 
-router.post("/api/add-note", noteController.addNote);
+// router.post("/api/add-note", noteController.addNote);
 
-router.delete("/api/delete-note/:id", noteController.deleteNote);
+// router.delete("/api/delete-note/:id", noteController.deleteNote);
 
-module.exports = router;
+export default router;

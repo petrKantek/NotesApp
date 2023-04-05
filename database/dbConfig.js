@@ -1,20 +1,10 @@
-const mongoose = require("mongoose");
-require("dotenv").config();
+const pgp = require('pg-promise')(/* options */)
+// change the connection string below to Azure App Service connection string from env variables
 
-const connOptions = {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-};
+const db = pgp(`postgres://${process.env.AZURE_POSTGRESQL_USER}
+:${process.env.AZURE_POSTGRESQL_PASSWORD}
+@${process.env.AZURE_POSTGRESQL_HOST}
+:${process.env.AZURE_POSTGRESQL_PORT}
+/${process.env.AZURE_POSTGRESQL_DATABASE}`)
 
-const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost:27017/Notes";
-
-const connectToDB = async () => {
-  try {
-    const connect = await mongoose.connect(MONGO_URI, connOptions);
-    if (connect) console.log(`Mongodb connected - ${connect.connection.host}`);
-  } catch (err) {
-    console.log(`Database error ${err}`);
-  }
-};
-
-module.exports = connectToDB;
+export default db;

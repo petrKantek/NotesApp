@@ -1,13 +1,12 @@
-const express = require("express");
-const path = require("path");
-const connectToDatabase = require("./database/dbConfig");
-const noteRoutes = require("./routes/index");
-const errorMiddleware = require("./middlewares/error");
-const cors = require("cors");
+import express, { urlencoded, json } from "express";
+import connectToDatabase from "./database/dbConfig";
+import noteRoutes from "./routes/index";
+import errorMiddleware from "./middlewares/error";
+import cors from "cors";
 
 const app = express();
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
+app.use(urlencoded({ extended: false }));
+app.use(json());
 
 app.use(cors());
 
@@ -30,6 +29,5 @@ const PORT = process.env.PORT || 3001;
 connectToDatabase().then((_) => {
   app.listen(PORT, (_) => {
     console.log(`Server started on port ${PORT}`);
-    console.log(app.get('env')); 
   });
 });

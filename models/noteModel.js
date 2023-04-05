@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+import { Schema, model } from "mongoose";
 
-const noteSchema = new mongoose.Schema(
+const noteSchema = new Schema(
   {
     name: {
       type: String,
@@ -18,4 +18,4 @@ const noteSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Note", noteSchema);
+export default model("Note", noteSchema);
