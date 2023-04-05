@@ -1,4 +1,5 @@
 const CustomError = require("../models/CustomError");
+const db = require("../database/dbConfig");
 
 exports.getNotes = async (req, res, next) => {
   try {

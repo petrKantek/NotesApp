@@ -1,6 +1,5 @@
 const express = require("express");
 const path = require("path");
-const connectToDatabase = require("./database/dbConfig");
 const noteRoutes = require("./routes/index");
 const errorMiddleware = require("./middlewares/error");
 const cors = require("cors");
@@ -27,8 +26,7 @@ app.use("*", (req, res) => {
 app.use(errorMiddleware);
 
 const PORT = process.env.PORT || 3001;
-connectToDatabase().then((_) => {
-  app.listen(PORT, (_) => {
-    console.log(`Server started on port ${PORT}`);
-  });
+
+app.listen(PORT, (_) => {
+  console.log(`Server started on port ${PORT}`);
 });
